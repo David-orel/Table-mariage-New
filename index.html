@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Plan de Table</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --gold: #b68c54;
+            --gold-light: #d8b785;
+            --cream: #faf7f2;
+            --text: #5b4f42;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: radial-gradient(circle at top left,#ffffff 0%,#faf7f2 40%,#f4eee5 100%);
+            font-family: 'Montserrat',sans-serif;
+            position: relative;
+        }
+
+        /* Décor floral */
+
+        .floral {
+            position: absolute;
+            color: rgba(182,140,84,0.18);
+            pointer-events: none;
+        }
+
+        .top-left {
+            top: -30px;
+            left: -30px;
+        }
+
+        .bottom-right {
+            bottom: -30px;
+            right: -30px;
+            transform: rotate(180deg);
+        }
+
+        svg {
+            width: 260px;
+            height: 260px;
+        }
+
+        .card {
+            width: min(90%,700px);
+            padding: 70px 40px;
+            text-align: center;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(182,140,84,.20);
+            border-radius: 30px;
+            box-shadow: 0 15px 50px rgba(0,0,0,.06), 0 0 0 8px rgba(255,255,255,.3);
+            animation: fadeIn 1.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome {
+            font-family: 'Cormorant Garamond',serif;
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .line {
+            width: 140px;
+            height: 1px;
+            margin: 25px auto 40px;
+            background: linear-gradient( to right, transparent, var(--gold), transparent );
+        }
+
+        .table-name {
+            font-family: 'Cormorant Garamond',serif;
+            font-size: 4.2rem;
+            color: var(--text);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            margin-top: 30px;
+            color: #8a7c6c;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .signature {
+            margin-top: 50px;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond',serif;
+            font-size: 1.4rem;
+        }
+
+        @media(max-width:768px) {
+
+            .card {
+                padding: 60px 25px;
+            }
+
+            .welcome {
+                font-size: 2.8rem;
+            }
+
+            .table-name {
+                font-size: 2.8rem;
+            }
+
+            svg {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="floral top-left">
+        <svg viewBox="0 0 200 200" fill="none">
+            <path d="M20 180 C60 90 120 80 180 20" stroke="currentColor" stroke-width="2" />
+            <path d="M50 150 C70 130 80 110 90 90" stroke="currentColor" />
+            <path d="M70 120 C90 110 105 95 110 70" stroke="currentColor" />
+            <path d="M40 160 C60 140 75 135 90 130" stroke="currentColor" />
+        </svg>
+    </div>
+
+    <div class="floral bottom-right">
+        <svg viewBox="0 0 200 200" fill="none">
+            <path d="M20 180 C60 90 120 80 180 20" stroke="currentColor" stroke-width="2" />
+            <path d="M50 150 C70 130 80 110 90 90" stroke="currentColor" />
+            <path d="M70 120 C90 110 105 95 110 70" stroke="currentColor" />
+            <path d="M40 160 C60 140 75 135 90 130" stroke="currentColor" />
+        </svg>
+    </div>
+
+    <div class="card">
+
+        <h1 class="welcome">Bienvenue à la Table</h1>
+
+        <div class="line"></div>
+
+        <div id="tableName" class="table-name">
+            Votre Table
+        </div>
+
+        <div class="subtitle">
+            Nous sommes heureux de vous accueillir parmi nous
+        </div>
+
+        <div class="signature">
+            Mayinga & Deborah
+        </div>
+
+    </div>
+
+    <script>
+
+        const tables = {
+
+            1: "Paix",
+            2: "Richesse",
+            3: "Bienveillance",
+            4: "Patience",
+            5: "Joie",
+            6: "Amour",
+            7: "Unité",
+            8: "Fidélité",
+            9: "Grâce",
+            10: "Trésor",
+            11: "Douceur",
+            12: "Sagesse",
+            13: "Bonté",
+            14: "Force",
+            15: "Humilité",
+            16: "Simplicité",
+            17: "Intelligence",
+            18: "Intégrité",
+            19: "Droiture",
+            20: "Tempérance",
+            21: "Connaissance",
+            22: "Faveur",
+            23: "Instruction",
+            24: "Allégresse"
+
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        const tableName = document.getElementById("tableName");
+
+        if (id && tables[id]) {
+            tableName.textContent = tables[id];
+        } else {
+            tableName.textContent = tables[10];
+        }
+
+    </script>
+
+</body>
+</html>
