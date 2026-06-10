@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -138,6 +138,30 @@
                 height: 180px;
             }
         }
+        .search-container {
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #guestSearch {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #d9d9d9;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+            #guestSearch:focus {
+                border-color: #b68c54;
+            }
+
+        #result {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -159,8 +183,10 @@
             <path d="M40 160 C60 140 75 135 90 130" stroke="currentColor" />
         </svg>
     </div>
+   </div>
 
     <div class="card">
+
 
         <h1 class="welcome">Bienvenue à la Table</h1>
 
@@ -175,54 +201,388 @@
         </div>
 
         <div class="signature">
-            Johnny & Deborah
+            Mayinga & Deborah
         </div>
 
-    </div>
+        <div class="search-container">
 
-    <script>
+            <input type="text"
+                   id="guestSearch"
+                   placeholder="Vérification invité......">
 
-        const tables = {
+            <div id="result"></div>
 
-            1: "Paix",
-            2: "Richesse",
-            3: "Bienveillance",
-            4: "Patience",
-            5: "Joie",
-            6: "Amour",
-            7: "Unité",
-            8: "Fidélité",
-            9: "Grâce",
-            10: "Trésor",
-            11: "Douceur",
-            12: "Sagesse",
-            13: "Bonté",
-            14: "Force",
-            15: "Humilité",
-            16: "Simplicité",
-            17: "Intelligence",
-            18: "Intégrité",
-            19: "Droiture",
-            20: "Tempérance",
-            21: "Connaissance",
-            22: "Faveur",
-            23: "Instruction",
-            24: "Allégresse"
 
-        };
+        </div>
 
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("id");
+        <script>
 
-        const tableName = document.getElementById("tableName");
+            // =========================
+            // TABLES
+            // =========================
 
-        if (id && tables[id]) {
-            tableName.textContent = tables[id];
-        } else {
-            tableName.textContent = tables[10];
-        }
+            const tables = {
+                1: "Paix",
+                2: "Richesse",
+                3: "Bienveillance",
+                4: "Patience",
+                5: "Joie",
+                6: "Amour",
+                7: "Unité",
+                8: "Fidélité",
+                9: "Grâce",
+                10: "Trésor",
+                11: "Douceur",
+                12: "Sagesse",
+                13: "Bonté",
+                14: "Force",
+                15: "Humilité",
+                16: "Simplicité",
+                17: "Intelligence",
+                18: "Intégrité",
+                19: "Droiture",
+                20: "Tempérance",
+                21: "Connaissance",
+                22: "Faveur",
+                23: "Instruction",
+                24: "Allégresse"
+            };
 
-    </script>
+            // =========================
+            // INVITÉS
+            // =========================
+
+            const guests = {
+
+                1: [
+                    "Couple Pasteur Jonathan",
+                    "Couple Eddy",
+                    "Couple Jose Bamba",
+                    "Couple Moury",
+                    "Sarah",
+                    "Christian",
+                    "Couple Pasteur Remy"
+                ],
+
+                2: [
+                    "Couple Bonard",
+                    "Couple Claude Ntebi",
+                    "Couple Siméon",
+                    "Couple Marcel",
+                    "Couple Wayiwayi"
+                ],
+
+                3: [
+                    "Maman Mande",
+                    "Couple Xavier et Rose Marie",
+                    "Couple Akoto",
+                    "Couple Muanda",
+                    "Couple Mapesa"
+                ],
+
+                4: [
+                    "Couple Buaka Nkanga",
+                    "Couple Mato",
+                    "Maman Marie Claire",
+                    "Ya Mpoji",
+                    "Thomas Masidi",
+                    "Couple Luyeye",
+                    "Couple Balombi"
+                ],
+
+                5: [
+                    "Couple Jonathan et Sarah M",
+                    "Couple Nazili",
+                    "Josue",
+                    "Couple Eva & Placide",
+                    "Jonathan UCL",
+                    "Lara",
+                    "Couple Tanguy & Ofelia"
+                ],
+
+                6: [
+                    "Couple Papa José & Agnès",
+                    "Couple Bethy et Lucien",
+                    "Couple Juceline et Hugues",
+                    "Aimé Lubamba",
+                    "Bijoux Nzonza",
+                    "Papa Nzonzi",
+                    "Pitshou Nzonza"
+                ],
+
+                7: [
+                    "Julie et Mimiche Diakabana",
+                    "Couple Rosie et Évelyne",
+                    "Couple Gaël et Tanya",
+                    "Couple Darla et Henri",
+                    "Couple Micheline et Chris"
+                ],
+
+                8: [
+                    "Couple Pitshou et Nelly",
+                    "Couple Olga et Jorge",
+                    "Couple Christian et Passi",
+                    "Couple Darbi Lubamba",
+                    "Couple Carine et époux"
+                ],
+
+                9: [
+                    "Dade Ndebo et Fils",
+                    "Couple Dolorese Ndozi",
+                    "Couple Nene Ndozi",
+                    "Couple Patou Ndozi",
+                    "Marie et Fils"
+                ],
+
+                10: [
+                    "Godé et Fille",
+                    "Mado Bolubo",
+                    "Couple Maria",
+                    "Couple Pasteur Mark & Noëlla",
+                    "Couple Pasteur Joseph & Sarah"
+                ],
+
+                11: [
+                    "Maman Horty et Gaëtan",
+                    "Couple Gaël et Jamile",
+                    "Couple Emmanuella et Bryan + Anaiah et Ariel",
+                    "Couple Glodi et Cassy",
+                    "Couple Senty"
+                ],
+
+                12: [
+                    "Couple Albert Kisamba",
+                    "Thérèse et Micheline",
+                    "Mado et Adrien",
+                    "Tarzan et Germaine Kiatangi",
+                    "Antoinette Kembesa"
+                ],
+
+                13: [
+                    "Mamie Chantal + Nora + Noha",
+                    "Ruth et Ami",
+                    "Couple Leadry",
+                    "Niline + Shirley + Ivanilde"
+                ],
+
+                14: [
+                    "Maman Alpha",
+                    "Couple Seeler et Tylia Mbaki",
+                    "Couple Hakeem",
+                    "Couple Aristote"
+                ],
+
+                15: [
+                    "Lionel et Lauriane",
+                    "Sarah Limé",
+                    "Nadja",
+                    "Naomie Otshotsho",
+                    "Milca",
+                    "Deborah",
+                    "Marie Noel",
+                    "Asma",
+                    "Naomi Akanga"
+                ],
+
+                16: [
+                    "Famille Mayence"
+                ],
+
+                17: [
+                    "Couple Generose et Edmond",
+                    "Couple Dorcas et Roussel",
+                    "Marie",
+                    "Couple Mpacko",
+                    "Couple Barbara et Mimiphare",
+                    "Couple Christiane et Guerera"
+                ],
+
+                18: [
+                    "Maman Adrienne",
+                    "Maman Huguette",
+                    "Leaticia",
+                    "Julie et Mona",
+                    "Myriam",
+                    "Couple Pasteur Germain"
+                ],
+
+                19: [
+                    "Couple François",
+                    "Couple Alou",
+                    "Couple Caroline et Christian",
+                    "Louise",
+                    "Diane",
+                    "Couple Manassée et Héritier",
+                    "Maman Liliane"
+                ],
+
+                20: [
+                    "Couple Stéphane + Jessica",
+                    "Couple Christian et Anaïs",
+                    "Couple Juliana et Joshua",
+                    "Couple Rabelais et Maria"
+                ],
+
+                21: [
+                    "Pamela + Daniel + Chris",
+                    "Couple Thierry et Gracia Mashini",
+                    "Maitre Marcelline + Chloé + Kony",
+                    "Couple Olivier + Esther"
+                ],
+
+                22: [
+                    "Couple Martin et Marise",
+                    "Couple Ngonga et Marie",
+                    "Couple Grégoire et Angèle",
+                    "Couple Godefroy et Mado",
+                    "Couple Evelyne + Alain"
+                ],
+
+                23: [
+                    "Couple Nona",
+                    "Couple Josue et Elisée",
+                    "Anny",
+                    "Couple Bope",
+                    "Couple Roger et Rose"
+                ],
+
+                24: [
+                    "Couple Patrick et Bibina",
+                    "Couple Felix et Peguy",
+                    "Stéphane + Stéphane + Akelo",
+                    "Maman Claudine Nzuzi",
+                    "Maman Claudine Kabal"
+                ]
+
+            };
+
+            // =========================
+            // TABLE COURANTE
+            // =========================
+
+            const params = new URLSearchParams(window.location.search);
+
+            const id = params.get("id") || "1";
+
+            document.getElementById("tableName").textContent =
+                tables[id] || "Paix";
+
+            // =========================
+            // RECHERCHE
+            // =========================
+
+            function normalize(text) {
+                return text
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .toLowerCase()
+                    .trim();
+            }
+
+            function searchGuest() {
+
+                const query =
+                    document.getElementById("guestSearch")
+                        .value
+                        .trim();
+
+                const result =
+                    document.getElementById("result");
+
+                if (query === "") {
+                    result.innerHTML = "";
+                    return;
+                }
+
+                const currentGuests = guests[id] || [];
+
+                const search = normalize(query);
+
+                let found = null;
+
+                for (const group of currentGuests) {
+
+                    if (normalize(group).includes(search)) {
+                        found = group;
+                        break;
+                    }
+
+                    const members = group
+                        .split(/\+|&| et /i)
+                        .map(x => x.trim());
+
+                    for (const member of members) {
+
+                        if (normalize(member).includes(search)) {
+
+                            found = group;
+                            break;
+                        }
+
+                    }
+
+                    if (found) break;
+                }
+
+                if (found) {
+
+                    result.innerHTML = `
+                            <div style="
+                                background:#eaf9ef;
+                                color:#1f8f4d;
+                                padding:16px;
+                                border-radius:12px;
+                                margin-top:15px;
+                                border:1px solid #cbe7d3;
+                            ">
+                                <strong>✅ Invitation valide</strong>
+
+                                <br><br>
+
+                                <strong>Groupe :</strong><br>
+                                ${found}
+
+                                <br><br>
+
+                                <strong>Table :</strong>
+                                ${tables[id]}
+                            </div>
+                            `;
+
+                } else {
+
+                    result.innerHTML = `
+                            <div style="
+                                background:#fff1f1;
+                                color:#b71c1c;
+                                padding:16px;
+                                border-radius:12px;
+                                margin-top:15px;
+                                border:1px solid #f0caca;
+                            ">
+                                <strong>❌ Nom non trouvé sur cette table</strong>
+                            </div>
+                            `;
+
+                }
+            }
+
+            // Recherche instantanée
+
+            document.addEventListener("DOMContentLoaded", () => {
+
+                const input =
+                    document.getElementById("guestSearch");
+
+                if (input) {
+
+                    input.addEventListener("input", searchGuest);
+
+                }
+
+            });
+
+        </script>
 
 </body>
 </html>
