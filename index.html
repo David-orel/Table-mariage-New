@@ -183,7 +183,7 @@
             <path d="M40 160 C60 140 75 135 90 130" stroke="currentColor" />
         </svg>
     </div>
-   </div>
+
 
     <div class="card">
 
@@ -214,260 +214,255 @@
 
 
         </div>
+    </div>
 
-        <script>
 
-            // =========================
-// TABLES
-// =========================
+            <script>
 
-const tables = {
-    1: "Paix",
-    2: "Richesse",
-    3: "Bienveillance",
-    4: "Patience",
-    5: "Joie",
-    6: "Amour",
-    7: "Unité",
-    8: "Fidélité",
-    9: "Grâce",
-    10: "Trésor",
-    11: "Douceur",
-    12: "Sagesse",
-    13: "Bonté",
-    14: "Force",
-    15: "Humilité",
-    16: "Simplicité",
-    17: "Intelligence",
-    18: "Intégrité",
-    19: "Droiture",
-    20: "Tempérance",
-    21: "Connaissance",
-    22: "Faveur",
-    23: "Instruction",
-    24: "Allégresse"
-};
+                // ========================= TABLES ========================= //
 
-// =========================
-// INVITÉS
-// =========================
+                const tables = {
+                    1: "Paix",
+                2: "Richesse",
+                3: "Bienveillance",
+                4: "Patience",
+                5: "Joie",
+                6: "Amour",
+                7: "Unité",
+                8: "Fidélité",
+                9: "Grâce",
+                10: "Trésor",
+                11: "Douceur",
+                12: "Sagesse",
+                13: "Bonté",
+                14: "Force",
+                15: "Humilité",
+                16: "Simplicité",
+                17: "Intelligence",
+                18: "Intégrité",
+                19: "Droiture",
+                20: "Tempérance",
+                21: "Connaissance",
+                22: "Faveur",
+                23: "Instruction",
+                24: "Allégresse"
+            };
 
-const guests = {
+                // =========================
+                // INVITÉS
+                // =========================
 
-    1: [
-        "Couple Pasteur Jonathan",
-        "Couple Eddy",
-        "Jose Bamba",
-        "Couple Moury",
-        "Couple Christian",
-        "Couple Pasteur Remy"
-    ],
+                const guests = {
+                    1: [ // Table Paix
+                "Couple Pasteur Jonathan",
+                "Couple Eddy",
+                "Jose Bamba",
+                "Couple Christian",
+                "Couple Pasteur Remy"
+                ],
 
-    2: [
-        "Couple Bonard",
-        "Couple Siméon",
-        "Maman Henriette",
-        "Couple Dominique"
-    ],
+                2: [ // Table Richesse
+                "Couple Bonard",
+                "Couple Siméon",
+                "Maman Henriette",
+                "Couple Dominique"
+                ],
 
-    3: [
-        "Maman Mande et amie",
-        "Couple Xavier et Rose Marie",
-        "Couple Akoto",
-        "Couple Muanda",
-        "Couple Mapesa"
-    ],
+                3: [ // Table Bienveillance
+                "Maman Mande et amie",
+                "Couple Xavier et Rose Marie",
+                "Couple Akoto",
+                "Couple Muanda",
+                "Couple Mapesa"
+                ],
 
-    4: [
-        "Couple Mato",
-        "William",
-        "Thomas",
-        "Benjamin",
-        "Couple Luyeye",
-        "Hélène Landu",
-        "Nganga"
-    ],
+                4: [ // Table Patience
+                "Couple Mato",
+                "William",
+                "Thomas",
+                "Benjamin",
+                "Couple Luyeye",
+                "Hélène Landu",
+                "Nganga"
+                ],
 
-    5: [
-        "Couple Jonathan et Sarah M",
-        "Couple Nazili",
-        "Josue",
-        "Couple Eva & Placide",
-        "Lara",
-        "Couple Tanguy & Ofelia"
-    ],
+                5: [ // Table Joie
+                "Couple Jonathan et Sarah M",
+                "Couple Nazili",
+                "Josue",
+                "Couple Eva & Placide",
+                "Lara",
+                "Couple Tanguy & Ofelia"
+                ],
 
-    6: [
-        "Couple Papa José & Agnès",
-        "Couple Bethy et Lucien",
-        "Couple Juceline et Hugues",
-        "Aimé Lubamba",
-        "Couple Bijoux Nzonza et Julien Mbaki",
-        "Papa André Dokolo",
-        "Pitshou Nzonza"
-    ],
+                6: [ // Table Amour
+                "Couple Papa José & Agnès",
+                "Couple Bethy et Lucien",
+                "Couple Juceline et Hugues",
+                "Couple Bijoux Nzonza et Julien Mbaki",
+                "Papa André Dokolo"
+                ],
 
-    7: [
-        "Julie",
-        "Mimiche Diakabana",
-        "Couple Rosie et Évelyne",
-        "Couple Gaël et Tanya",
-        "Couple Darla et Henri",
-        "Couple Micheline et Chris"
-    ],
+                7: [ // Table Unité
+                "Julie",
+                "Mimiche Diakabana",
+                "Couple Rosie et Évelyne",
+                "Couple Gaël et Tanya",
+                "Couple Darla et Henri",
+                "Couple Micheline et Chris"
+                ],
 
-    8: [
-        "Couple Pitshou et Nelly",
-        "Couple Olga et Jorge",
-        "Couple Christian et Passi",
-        "Couple Darbi Lubamba",
-        "Couple Carine et époux"
-    ],
+                8: [ // Table Fidélité
+                "Couple Pitshou et Nelly",
+                "Couple Olga et Jorge",
+                "Couple Christian et Passi",
+                "Couple Darbi Lubamba",
+                "Couple Carine et époux"
+                ],
 
-    9: [
-        "Couple Dolorese Ndozi",
-        "Mathy",
-        "Nanouche",
-        "Couple Nene Ndozi",
-        "Couple Patou Ndozi",
-        "Marie Claire",
-        "Rineidi Nzoza"
-    ],
+                9: [ // Table Grâce
+                "Couple Dolorese Ndozi",
+                "Mathy",
+                "Nanouche",
+                "Couple Nene Ndozi",
+                "Couple Patou Ndozi",
+                "Marie Claire",
+                "Rineidi Nzoza"
+                ],
 
-    10: [
-        "Godet",
-        "Couple Mado Bolumbu",
-        "Couple Maria",
-        "Couple Pasteur Mark & Noëlla",
-        "Bénédicte"
-    ],
+                10: [ // Table Trésor
+                "Godet",
+                "Couple Mado Bolumbu",
+                "Pasteur Marck et Elvis",
+                "Bénédicte"
+                ],
 
-    11: [
-        "Maman Horty et Gaëtan",
-        "Couple Gaël et Jamile",
-        "Couple Emmanuella et Bryan + Anaiah et Ariel",
-        "Couple Glodi et Cassy"
-    ],
+                11: [ // Table Douceur
+                "Maman Horty et Gaëtan",
+                "Couple Gaël et Jamile",
+                "Couple Emmanuella et Bryan + Anaiah et Ariel",
+                "Couple Glodi et Cassy"
+                ],
 
-    12: [
-        "Couple Albert Kisamba",
-        "Thérèse et Micheline",
-        "Mado et Adrien",
-        "Tarzan et Germaine Kiatangi",
-        "Antoinette Kembesa"
-    ],
+                12: [ // Table Sagesse
+                "Couple Albert Kisamba",
+                "Thérèse et Micheline",
+                "Adrien",
+                "Tarzan et Germaine Kiatangi",
+                "Antoinette Kembesa"
+                ],
 
-    13: [
-        "Mamie Chantal + Nora + Noha",
-        "Ruth et Ami",
-        "Couple Leadry",
-        "Niline + Shirley + Ivanilde"
-    ],
+                13: [ // Table Bonté
+                "Couple Leadry",
+                "Mado et amie",
+                "Thérèse et 2 amies"
+                ],
 
-    14: [
-        "Maman Alpha",
-        "Couple Siler & Tylia",
-        "Couple Hakeem",
-        "Couple Aristote",
-        "Famille Buaka Kanga"
-    ],
+                14: [ // Table Force
+                "Maman Alpha",
+                "Couple Siler & Tylia",
+                "Couple Hakeem",
+                "Couple Aristote",
+                "Famille Buaka Kanga (5 personnes)"
+                ],
 
-    15: [
-        "Lionel",
-        "Lauriane",
-        "Sarah Limet",
-        "Nadja",
-        "Naomie Otshotsho",
-        "Milka",
-        "Deborah",
-        "Marie Noel",
-        "Asma",
-        "Naomi Akanga"
-    ],
+                15: [ // Table Humilité
+                "Lionel",
+                "Lauriane",
+                "Sarah Limet",
+                "Nadja",
+                "Naomie Otshitshi",
+                "Milka",
+                "Deborah",
+                "Marie Noel",
+                "Asma",
+                "Naomi Akanga"
+                ],
 
-    16: [
-        "Famille Mayence"
-    ],
+                16: [ // Table Simplicité
+                "Famille Mayence"
+                ],
 
-    17: [
-        "Couple Generose et Edmond",
-        "Couple Dorcas et Roussel",
-        "Marie",
-        "Couple Mpacko",
-        "Couple Barbara et Mimiphare",
-        "Couple Christiane et Guerera"
-    ],
+                17: [ // Table Intelligence
+                "Couple Generose et Edmond",
+                "Couple Dorcas et Roussel",
+                "Marie",
+                "Couple Mpacko",
+                "Couple Barbara et Mimiphare",
+                "Couple Christiane et Guerera"
+                ],
 
-    18: [
-        "Maman Adrienne",
-        "Maman Huguette",
-        "Leaticia",
-        "Julie",
-        "Mona",
-        "Myriame",
-        "Couple Mpogi"
-    ],
+                18: [ // Table Intégrité
+                "Maman Adrienne",
+                "Maman Huguette",
+                "Leaticia",
+                "Julie",
+                "Mona",
+                "Myriame",
+                "Couple Mpogi"
+                ],
 
-    19: [
-        "Couple François",
-        "Couple Alou",
-        "Couple Caroline et Christian",
-        "Louise",
-        "Diane",
-        "Couple Manassée et Héritier",
-        "Maman Liliane"
-    ],
+                19: [ // Table Droiture
+                "Couple François",
+                "Couple Alou",
+                "Couple Caroline et Christian",
+                "Louise",
+                "Diane",
+                "Couple Manassée et Héritier",
+                "Maman Liliane"
+                ],
 
-    20: [
-        "Couple Stéphane + Jessica",
-        "Couple Christian et Anaïs",
-        "Couple Juliana et Joshua",
-        "Couple Rabelais et Maria"
-    ],
+                20: [ // Table Tempérance
+                "Couple Stéphane + Jessica",
+                "Couple Christian et Anaïs",
+                "Couple Juliana et Joshua",
+                "Couple Rabelais",
+                "Arold"
+                ],
 
-    21: [
-        "Pamela + Daniel + Chris",
-        "Thierry et Gracia Mashini",
-        "Maitre Marcelline + Chloé + Kony",
-        "Couple Olivier + Esther"
-    ],
+                21: [ // Table Connaissance
+                "Pamela + Daniel + Chris",
+                "Thierry et Gracia Mashini",
+                "Maitre Marcelline + Chloé + Kony",
+                "Couple Olivier + Esther"
+                ],
 
-    22: [
-        "Couple Martin et Marise",
-        "Couple Ngonga et Marie",
-        "Couple Grégoire et Angèle",
-        "Couple Godefroy et Mado",
-        "Couple Evelyne + Alain"
-    ],
+                22: [ // Table Faveur
+                "Couple Martin et Marise",
+                "Couple Ngonga et Marie",
+                "Couple Grégoire et Angèle",
+                "Couple Godefroy et Mado",
+                "Couple Evelyne + Alain"
+                ],
 
-    23: [
-        "Couple Nona",
-        "Couple et Elisée",
-        "Anny",
-        "Couple Bope",
-        "Couple Roger et Rose"
-    ],
+                23: [ // Table Instruction
+                "Couple Nona",
+                "Couple et Elisée",
+                "Anny",
+                "Couple Bope",
+                "Couple Roger et Rose"
+                ],
 
-    24: [
-        "Couple Patrick et Bibina",
-        "Couple Felix et Peguy",
-        "Stéphane + Stéphane + Akelo",
-        "Maman Claudine Nzuzi",
-        "Maman Claudine Kabal"
-    ]
+                24: [ // Table Allégresse
+                "Couple Patrick et Bibina",
+                "Couple Felix et Peguy",
+                "Stéphane + Stéphane + Akelo",
+                "Maman Claudine Nzuzi",
+                "Maman Claudine Kabal"
+                ]
+            };
 
-};
-
+       
             // =========================
             // TABLE COURANTE
             // =========================
 
             const params = new URLSearchParams(window.location.search);
 
-            const id = params.get("id") || "1";
+            const id = params.get("id") || "10";
 
             document.getElementById("tableName").textContent =
-                tables[id] || "Paix";
+                tables[id] || "Trésor";
 
             // =========================
             // RECHERCHE
